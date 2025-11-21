@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YihitoDev - Portfolio Roblox</title>
+    <title>YihitoDev - Roblox Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        /* --- CONFIGURATION GLOBALE --- */
+        /* --- GLOBAL CONFIGURATION --- */
         body {
             background-color: #0f172a;
             color: #e2e8f0;
@@ -18,7 +18,7 @@
             overflow-x: hidden;
         }
 
-        /* --- GIF EN ARRIÈRE-PLAN DE LA SECTION HOME (MODIFIÉ) --- */
+        /* --- HOME SECTION BACKGROUND GIF --- */
         #home {
             position: relative;
             overflow: hidden;
@@ -31,13 +31,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* NOUVELLE URL DU GIF */
+            /* GIF URL (kept as is) */
             background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXhpZTJwb2V5dGFiN2VudDBsODV4aTl6bHlibHJxbmc3Mmt6bTFzYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/chkuZlgkjJtlP10ar5/giphy.gif');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.15; /* Réduit l'opacité pour que le texte reste lisible */
-            z-index: -1; /* Place le GIF derrière le contenu de la section home */
+            opacity: 0.15; 
+            z-index: -1; 
             animation: backgroundFadeIn 2s ease-out forwards;
         }
         
@@ -46,7 +46,7 @@
             to { opacity: 0.15; }
         }
 
-        /* --- GLASSMORPHISM & EFFET HOVER LIFT --- */
+        /* --- GLASSMORPHISM & HOVER LIFT EFFECT --- */
         .glass-card {
             background: rgba(30, 41, 59, 0.6);
             backdrop-filter: blur(12px);
@@ -63,7 +63,7 @@
             box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3);
         }
 
-        /* --- MODAL (FENÊTRE POP-UP) --- */
+        /* --- MODAL (POP-UP WINDOW) --- */
         .modal-hidden {
             visibility: hidden;
             opacity: 0;
@@ -75,7 +75,7 @@
             transition: opacity 0.3s;
         }
 
-        /* --- CURSEUR CLIGNOTANT --- */
+        /* --- TYPING CURSOR --- */
         .typing-cursor::after {
             content: '|';
             animation: blink 1s step-start infinite;
@@ -83,7 +83,7 @@
         }
         @keyframes blink { 50% { opacity: 0; } }
 
-        /* --- FLÈCHE --- */
+        /* --- BOUNCE ARROW --- */
         .bounce { animation: bounce 2s infinite; }
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
@@ -100,9 +100,9 @@
                 Yihito<span class="text-blue-500">Dev</span>
             </a>
             <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#home" class="hover:text-blue-400 transition">ACCUEIL</a>
-                <a href="#skills" class="hover:text-blue-400 transition">COMPÉTENCES</a>
-                <a href="#projects" class="hover:text-blue-400 transition">PROJETS</a>
+                <a href="#home" class="hover:text-blue-400 transition">HOME</a>
+                <a href="#skills" class="hover:text-blue-400 transition">SKILLS</a>
+                <a href="#projects" class="hover:text-blue-400 transition">PROJECTS</a>
                 <a href="#contact" class="text-blue-400 border border-blue-400 px-4 py-1 rounded hover:bg-blue-400 hover:text-white transition">CONTACT</a>
             </div>
         </div>
@@ -117,19 +117,19 @@
             </h1>
 
             <div class="text-2xl md:text-4xl font-mono text-slate-300 mb-8 h-10">
-                Je suis spécialisé en <span id="typing-text" class="text-blue-400 font-bold typing-cursor"></span>
+                I specialize in <span id="typing-text" class="text-blue-400 font-bold typing-cursor"></span>
             </div>
 
             <p class="text-slate-400 max-w-xl mx-auto text-lg mb-10">
-                Créateur d'expériences sur Roblox. Je transforme vos idées en jeux complets et optimisés.
+                Creator of experiences on Roblox. I turn your ideas into complete and optimized games.
             </p>
             
             <div class="flex gap-4 justify-center">
                 <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition shadow-lg shadow-blue-600/40">
-                    Mes Créations
+                    My Creations
                 </a>
                 <a href="#contact" class="glass-card text-white font-bold py-3 px-8 rounded-lg hover:bg-slate-700 transition">
-                    Contact
+                    Contact Me
                 </a>
             </div>
         </div>
@@ -142,19 +142,19 @@
     <section id="skills" class="py-24 bg-slate-900">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Mes Expertises</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My Expertise</h2>
                 <div class="h-1 w-20 bg-blue-500 mx-auto rounded-full"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="glass-card p-8 rounded-2xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute top-4 right-4 px-3 py-1 bg-blue-500/20 border border-blue-500/40 rounded-full text-xs text-blue-300 font-bold">2 ANS D'XP</div>
+                    <div class="absolute top-4 right-4 px-3 py-1 bg-blue-500/20 border border-blue-500/40 rounded-full text-xs text-blue-300 font-bold">2 YEARS EXP.</div>
                     <i class="fas fa-code text-4xl text-blue-500 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-2">Scripting Luau</h3>
+                    <h3 class="text-xl font-bold mb-2">Luau Scripting</h3>
                     <p class="text-white font-semibold mb-3 text-sm">FrontEnd & BackEnd</p>
                     <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4">
-                        <li>Systèmes complets (Data, Shops, Gamepass, UI, Combat)</li>
-                        <li>Programmation avancée</li>
+                        <li>Complete Systems (Data, Shops, Gamepass, UI, Combat)</li>
+                        <li>Advanced Programming</li>
                         <li>Client-Server Communication</li>
                     </ul>
                 </div>
@@ -162,23 +162,23 @@
                 <div class="glass-card p-8 rounded-2xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
                     <i class="fas fa-magic text-4xl text-pink-500 mb-6"></i>
                     <h3 class="text-xl font-bold mb-2">UI Design & VFX</h3>
-                    <p class="text-white font-semibold mb-3 text-sm">Visuel & Interactions</p>
+                    <p class="text-white font-semibold mb-3 text-sm">Visuals & Interactions</p>
                     <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4">
-                        <li>Interfaces modernes (Tweening)</li>
-                        <li>Particules & Effets visuels</li>
-                        <li>Expérience utilisateur fluide</li>
+                        <li>Modern Interfaces (Tweening)</li>
+                        <li>Particles & Visual Effects</li>
+                        <li>Smooth User Experience</li>
                     </ul>
                 </div>
 
                 <div class="glass-card p-8 rounded-2xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="absolute top-4 right-4 px-3 py-1 bg-green-500/20 border border-green-500/40 rounded-full text-xs text-green-300 font-bold">1 AN D'XP</div>
+                    <div class="absolute top-4 right-4 px-3 py-1 bg-green-500/20 border border-green-500/40 rounded-full text-xs text-green-300 font-bold">1 YEAR EXP.</div>
                     <i class="fas fa-cubes text-4xl text-green-500 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-2">Build & Env.</h3>
+                    <h3 class="text-xl font-bold mb-2">Building & Env.</h3>
                     <p class="text-white font-semibold mb-3 text-sm">Level Design</p>
                     <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4">
-                        <li>Création de Maps détaillées</li>
-                        <li>Lighting & Atmosphère</li>
-                        <li>Optimisation des parts</li>
+                        <li>Creation of Detailed Maps</li>
+                        <li>Lighting & Atmosphere</li>
+                        <li>Part Optimization</li>
                     </ul>
                 </div>
             </div>
@@ -188,8 +188,8 @@
     <section id="projects" class="py-24">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Projets Récents</h2>
-                <p class="text-slate-400">Cliquez sur une carte pour voir la démonstration en grand format.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Recent Projects</h2>
+                <p class="text-slate-400">Click on a card to view the large format demonstration.</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -197,7 +197,7 @@
                 <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="50"
                      data-video="https://www.dropbox.com/scl/fi/8c8cgomi15x2oen4mux5d/menurework.mp4?rlkey=0r0dprv3hja3cbthcma5rw8no&st=emyz4cxr&dl=1"
                      data-title="Main Menu & Loading Screen | Type Soul Rework"
-                     data-description="Menu et loading screen de Type Soul entièrement reworkés et optimisés. Inclut une nouvelle cutscene d'introduction inachevée et un système de progression de chargement asynchrone pour garantir une expérience utilisateur premium et sans lag dès le lancement."
+                     data-description="Completely reworked and optimized Menu and loading screen for Type Soul. Includes an unfinished introduction cutscene and an asynchronous loading progression system to ensure a premium, lag-free user experience from launch."
                      onclick="openModal(this)">
                     <div class="h-40 bg-black relative">
                         <video class="w-full h-full object-cover" autoplay loop muted playsinline>
@@ -207,14 +207,14 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold text-white mb-2">Menu & Loading | Type Soul Rework</h3>
-                        <p class="text-slate-400 mb-4 text-xs leading-snug">Rework complet et optimisation du Menu/Loading Screen de Type Soul...</p>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Complete rework and optimization of Type Soul's Menu/Loading Screen...</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="100"
                      data-video="https://www.dropbox.com/scl/fi/unv18cyy4h9712x6tw33f/UiSoul.mp4?rlkey=5xko4en3jax5gsck3zlw7dbgi&st=tc6ngx53&dl=1"
                      data-title="UI System | Type Soul Rework"
-                     data-description="Système d'interface utilisateur complet pour le combat et les données. Comprend un Skill Tree dynamique, une Barre de Santé/Mana personnalisée, une Hotbar et des Boutons Settings (Tween). Intègre des notifications sonores et un changement d'ambiance lumineuse pour signaler l'entrée et la sortie du mode In Combat, avec une musique de fond dynamique."
+                     data-description="Complete user interface system for combat and data. Includes a dynamic Skill Tree, a custom Health/Mana Bar, a Hotbar, and Settings Buttons (Tween). Integrates sound notifications and dynamic lighting change to signal entering and exiting In Combat mode, with dynamic background music."
                      onclick="openModal(this)">
                     <div class="h-40 bg-black relative">
                         <video class="w-full h-full object-cover" autoplay loop muted playsinline>
@@ -224,14 +224,14 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold text-white mb-2">UI System | Type Soul Rework</h3>
-                        <p class="text-slate-400 mb-4 text-xs leading-snug">Système d'interface utilisateur complet (Skill Tree, Health Bar, In Combat FX)...</p>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Complete user interface system (Skill Tree, Health Bar, In Combat FX)...</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="150"
                      data-video="https://www.dropbox.com/scl/fi/w86438gjmvtmva2p2qol9/Rapier.mp4?rlkey=xfm4g32du74uc8ylw4fveciut&st=sm2bdea8&dl=1"
                      data-title="Combat System | Rapier (Placeholder Staff)"
-                     data-description="Système de combat magique basé sur le Démon Staff. Gestion des Hitboxes optimisée (Client-Side) et réplication des VFX/AOE (Server-Side). Mécaniques avancées: Guard Break, Coups Critiques et combos aériens."
+                     data-description="Magic combat system based on the Demon Staff. Optimized Hitbox management (Client-Side) and VFX/AOE replication (Server-Side). Advanced mechanics: Guard Break, Critical Hits, and aerial combos."
                      onclick="openModal(this)">
                     <div class="h-40 bg-black relative">
                         <video class="w-full h-full object-cover" autoplay loop muted playsinline>
@@ -241,14 +241,14 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold text-white mb-2">Combat System | Demon Staff</h3>
-                        <p class="text-slate-400 mb-4 text-xs leading-snug">Système de combat magique avancé...</p>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Advanced magic combat system...</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="200"
                      data-video="https://www.dropbox.com/scl/fi/keuniqodenanbqev4ipqe/Gravity.mp4?rlkey=2cblegq23igbbyd4cjsrnpktg&st=f85h21w3&dl=1"
                      data-title="Magic System | Gravity"
-                     data-description="Système de contrôle de la gravité (AOE). Hitboxes synchronisées côté client et effets de lévitation appliqués côté serveur pour une performance optimale."
+                     data-description="Gravity control system (AOE). Hitboxes synchronized client-side and levitation effects applied server-side for optimal performance."
                      onclick="openModal(this)">
                     <div class="h-40 bg-black relative">
                         <video class="w-full h-full object-cover" autoplay loop muted playsinline>
@@ -258,14 +258,14 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold text-white mb-2">Magic System | Gravity</h3>
-                        <p class="text-slate-400 mb-4 text-xs leading-snug">Système de contrôle de la gravité (AOE)...</p>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Gravity control system (AOE)...</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="250"
                      data-video="https://www.dropbox.com/scl/fi/k09rbjwib6d56xhucdpnu/combat.mp4?rlkey=9o3flgadvbr9bdfawhf9vp7hm&e=1&st=g1i6e3zp&dl=1"
                      data-title="Combat System | Fist"
-                     data-description="Système de combat au corps-à-corps (Fist Style). Gestion des Hitboxes optimisée (Client-Side) avec réplication fluide des VFX (Server-Side). Intègre des mécaniques avancées comme le Air Grab et les coups critiques."
+                     data-description="Melee combat system (Fist Style). Optimized Hitbox management (Client-Side) with fluid VFX replication (Server-Side). Integrates advanced mechanics like Air Grab and Critical Hits."
                      onclick="openModal(this)">
                     <div class="h-40 bg-black relative">
                         <video class="w-full h-full object-cover" autoplay loop muted playsinline>
@@ -275,14 +275,14 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold text-white mb-2">Combat System | Fist</h3>
-                        <p class="text-slate-400 mb-4 text-xs leading-snug">Système de combat au corps-à-corps...</p>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Melee combat system...</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="300"
                      data-video="https://www.dropbox.com/scl/fi/w86438gjmvtmva2p2qol9/Rapier.mp4?rlkey=xfm4g32du74uc8ylw4fveciut&st=sm2bdea8&dl=1"
                      data-title="Combat System | Rapier"
-                     data-description="Système d'escrime rapide et précis (Rapier Style). Hitboxes fines et réactives, idéales pour les duels. Animation fluide, attaques de dash, et systèmes de parade basés sur l'expertise."
+                     data-description="Fast and precise fencing system (Rapier Style). Fine and responsive hitboxes, ideal for duels. Fluid animation, dash attacks, and expertise-based parry systems."
                      onclick="openModal(this)">
                     <div class="h-40 bg-black relative">
                         <video class="w-full h-full object-cover" autoplay loop muted playsinline>
@@ -292,14 +292,14 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold text-white mb-2">Combat System | Rapier</h3>
-                        <p class="text-slate-400 mb-4 text-xs leading-snug">Système d'escrime rapide et précis...</p>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Fast and precise fencing system...</p>
                     </div>
                 </div>
                 
                 <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="350"
                      data-video="https://www.dropbox.com/scl/fi/qwiivuxg7u5girvdifx3v/Fire.mp4?rlkey=i94d8lb4el2obytbg2t707h3y&st=y7g5uerc&dl=1"
                      data-title="Magic System | Fire Nova"
-                     data-description="Démonstration d'une cinématique d'introduction (Cutscene) précédant une puissante attaque de zone (Nova). Mise en scène visuelle et gestion des timings."
+                     data-description="Demonstration of an introduction cinematic (Cutscene) preceding a powerful Area of Effect (Nova) attack. Visual staging and timing management."
                      onclick="openModal(this)">
                     <div class="h-40 bg-black relative">
                         <video class="w-full h-full object-cover" autoplay loop muted playsinline>
@@ -309,14 +309,14 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold text-white mb-2">Magic System | Fire Nova</h3>
-                        <p class="text-slate-400 mb-4 text-xs leading-snug">Démonstration d'une cinématique d'introduction...</p>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Demonstration of an introduction cinematic...</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="400"
                      data-video="https://www.dropbox.com/scl/fi/1su0g3rfbcu3x29ufcngn/FireAura.mp4?rlkey=6i5qxqv3cqqvmnf8ztazuqufu&st=ealwxu8k&dl=1"
                      data-title="Magic System | Fire Aura"
-                     data-description="Aura de protection dynamique qui brûle les joueurs s'approchant trop près. Utilisation de Region3 ou de collisions légères pour la détection et des dégâts gérés côté serveur."
+                     data-description="Dynamic protective aura that burns players who get too close. Uses Region3 or light collisions for detection, with damage managed server-side."
                      onclick="openModal(this)">
                     <div class="h-40 bg-black relative">
                         <video class="w-full h-full object-cover" autoplay loop muted playsinline>
@@ -326,14 +326,14 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold text-white mb-2">Magic System | Fire Aura</h3>
-                        <p class="text-slate-400 mb-4 text-xs leading-snug">Aura de protection dynamique qui brûle...</p>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Dynamic protective aura that burns...</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="450"
                      data-video="https://www.dropbox.com/scl/fi/19th9q358obsucxlf3guy/Demon.mp4?rlkey=pt9c7qzo4kmjho9r4yxaa3q06&st=hgqsim90&dl=1"
                      data-title="Magic System | Demon Aura"
-                     data-description="Aura démoniaque qui supprime la lumière ambiante autour du joueur (localement pour les autres). Crée une zone de peur et d'obscurité pour les ennemis qui s'en approchent."
+                     data-description="Demonic aura that suppresses ambient light around the player (locally for others). Creates a zone of fear and darkness for approaching enemies."
                      onclick="openModal(this)">
                     <div class="h-40 bg-black relative">
                         <video class="w-full h-full object-cover" autoplay loop muted playsinline>
@@ -343,14 +343,14 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold text-white mb-2">Magic System | Demon Aura</h3>
-                        <p class="text-slate-400 mb-4 text-xs leading-snug">Aura démoniaque qui supprime la lumière...</p>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Demonic aura that suppresses light...</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="500"
                      data-video="https://www.dropbox.com/scl/fi/4dm5bi5ypbwu52358l3lm/Menu.mp4?rlkey=q69ttlswyirsb2trwr1dcckeg&st=ulbd3zsk&dl=1"
                      data-title="Loading Screen & Main Menu"
-                     data-description="Implémentation complète d'un écran de chargement animé et d'un menu principal intégrant les options de jeu (boutons fonctionnels, tween fluide, gestion des états)."
+                     data-description="Full implementation of an animated loading screen and a main menu featuring game options (functional buttons, smooth tweening, state management)."
                      onclick="openModal(this)">
                     <div class="h-40 bg-black relative">
                         <video class="w-full h-full object-cover" autoplay loop muted playsinline>
@@ -360,14 +360,14 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold text-white mb-2">Loading Screen & Main Menu</h3>
-                        <p class="text-slate-400 mb-4 text-xs leading-snug">Implémentation complète d'un écran de chargement...</p>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Full implementation of an animated loading screen...</p>
                     </div>
                 </div>
                 
                 <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="550"
                      data-video="https://www.dropbox.com/scl/fi/15dgn3ewvn0essm9yoijn/Guild.mp4?rlkey=pd778xp56rcms8smtnjnvkzam&st=xg7d19w0&dl=1"
                      data-title="Data | Team Guild System"
-                     data-description="UI client optimisée et tweenée. Déclenchement via un ClickDetector sur PNJ, vérification du rang/association, puis lancement d'une cutscene interactive d'acceptation de guilde."
+                     data-description="Optimized and tweened client UI. Triggered via a ClickDetector on NPC, rank/association check, followed by an interactive guild acceptance cutscene launch."
                      onclick="openModal(this)">
                     <div class="h-40 bg-black relative">
                         <video class="w-full h-full object-cover" autoplay loop muted playsinline>
@@ -377,14 +377,14 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold text-white mb-2">Data | Team Guild System</h3>
-                        <p class="text-slate-400 mb-4 text-xs leading-snug">UI client optimisée et tweenée...</p>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Optimized and tweened client UI...</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="600"
                      data-video="https://www.dropbox.com/scl/fi/kvhvzsxjot56b570dkde3/Environment.mp4?rlkey=oim8fot5ui1sk6ee5zu3nvel5&st=96lzojw3&dl=1"
                      data-title="Build | Beach Plage"
-                     data-description="Scène de plage détaillée. VFX animés sur la mer et le ciel (mouvements d'oiseaux, vagues dynamiques), démontrant la gestion de l'Atmosphère et du Lighting pour un rendu réaliste."
+                     data-description="Detailed beach scene. Animated VFX on the sea and sky (bird movements, dynamic waves), demonstrating Atmosphere and Lighting management for a realistic rendering."
                      onclick="openModal(this)">
                     <div class="h-40 bg-black relative">
                         <video class="w-full h-full object-cover" autoplay loop muted playsinline>
@@ -394,14 +394,14 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold text-white mb-2">Build | Beach Plage</h3>
-                        <p class="text-slate-400 mb-4 text-xs leading-snug">Scène de plage détaillée. VFX animés...</p>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Detailed beach scene. Animated VFX...</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="650"
                      data-video="https://www.dropbox.com/scl/fi/0adw3yyjcznl6dnbitqhb/Donjon.mp4?rlkey=9jxcnqk37g4o8fxraaqbfxh96&st=5y7k1an1&dl=1"
-                     data-title="Build | Hell's Donjon"
-                     data-description="Design de niveau (Level Design) d'un donjon infernal. Utilisation de l'environnement pour créer l'ambiance et masquer des créatures étranges."
+                     data-title="Build | Hell's Dungeon"
+                     data-description="Level Design of an infernal dungeon. Use of environment to create atmosphere and conceal strange creatures."
                      onclick="openModal(this)">
                     <div class="h-40 bg-black relative">
                         <video class="w-full h-full object-cover" autoplay loop muted playsinline>
@@ -410,15 +410,15 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-lg font-bold text-white mb-2">Build | Hell's Donjon</h3>
-                        <p class="text-slate-400 mb-4 text-xs leading-snug">Design de niveau (Level Design) d'un donjon...</p>
+                        <h3 class="text-lg font-bold text-white mb-2">Build | Hell's Dungeon</h3>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Level Design of an infernal dungeon...</p>
                     </div>
                 </div>
 
                  <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="700"
                      data-video="https://www.dropbox.com/scl/fi/02ho64jb7kvl5gau9fumk/Donjon2.mp4?rlkey=tnbkzgmwv1ghwtxmozg243q8z&st=6iq2dmnt&dl=1"
-                     data-title="Build | Donjon (Part.2)"
-                     data-description="Suite du Donjon. Effet de chaleur et texture de lave qui infligent des brûlures/dégâts si le joueur n'est pas protégé. Démonstration de l'interactivité entre le Build et les scripts."
+                     data-title="Build | Dungeon (Part.2)"
+                     data-description="Dungeon sequel. Heat effect and lava texture that inflict burns/damage if the player is not protected. Demonstration of interactivity between the Build and scripts."
                      onclick="openModal(this)">
                     <div class="h-40 bg-black relative">
                         <video class="w-full h-full object-cover" autoplay loop muted playsinline>
@@ -427,8 +427,8 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-lg font-bold text-white mb-2">Build | Donjon (Part.2)</h3>
-                        <p class="text-slate-400 mb-4 text-xs leading-snug">Suite du Donjon. Effet de chaleur et texture de lave...</p>
+                        <h3 class="text-lg font-bold text-white mb-2">Build | Dungeon (Part.2)</h3>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Dungeon sequel. Heat effect and lava texture...</p>
                     </div>
                 </div>
                 
@@ -438,8 +438,8 @@
 
     <section id="contact" class="py-24 bg-slate-900">
         <div class="max-w-3xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-6" data-aos="zoom-in">Me Contacter</h2>
-            <p class="text-slate-400 mb-10">N'hésite pas à me contacter pour discuter de ton projet.</p>
+            <h2 class="text-3xl font-bold mb-6" data-aos="zoom-in">Contact Me</h2>
+            <p class="text-slate-400 mb-10">Feel free to contact me to discuss your project.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="glass-card p-6 rounded-xl hover:bg-[#5865F2] transition flex items-center justify-center gap-4 group cursor-pointer">
                     <i class="fab fa-discord text-3xl group-hover:text-white text-[#5865F2] transition"></i>
@@ -489,8 +489,8 @@
     <script>
         AOS.init();
         
-        // SCRIPT TYPING EFFECT
-        const texts = ["Script Luau", "UI Design", "Build", "VFX", "Environnement"];
+        // TYPING EFFECT SCRIPT
+        const texts = ["Luau Scripting", "UI Design", "Building", "VFX", "Environment"];
         let count = 0;
         let index = 0;
         let currentText = "";
@@ -508,54 +508,54 @@
             setTimeout(type, speed);
         })();
 
-        // SCRIPT MODAL
+        // MODAL SCRIPT
         const modal = document.getElementById('project-modal');
         const modalVideo = document.getElementById('modal-video');
         const modalTitle = document.getElementById('modal-title');
         const modalDescription = document.getElementById('modal-description');
 
         /**
-         * Ouvre la modale et injecte le contenu de la carte cliquée.
-         * @param {HTMLElement} element - La carte de projet cliquée.
+         * Opens the modal and injects content from the clicked card.
+         * @param {HTMLElement} element - The clicked project card.
          */
         function openModal(element) {
             const videoSrc = element.getAttribute('data-video');
             const title = element.getAttribute('data-title');
             const description = element.getAttribute('data-description');
             
-            // 1. Injecter le contenu
+            // 1. Inject content
             modalVideo.src = videoSrc;
             modalTitle.textContent = title;
             modalDescription.textContent = description;
             
-            // 2. Afficher la modale
+            // 2. Show the modal
             modal.classList.remove('modal-hidden');
             modal.classList.add('modal-visible');
 
-            // 3. Empêcher le défilement de la page derrière la modale
+            // 3. Prevent page scrolling behind the modal
             document.body.style.overflow = 'hidden';
 
-            // Assurer que la vidéo est lancée
+            // Ensure the video starts playing
             modalVideo.play();
         }
 
         /**
-         * Ferme la modale et nettoie.
+         * Closes the modal and cleans up.
          */
         function closeModal() {
-            // 1. Cacher la modale
+            // 1. Hide the modal
             modal.classList.remove('modal-visible');
             modal.classList.add('modal-hidden');
 
-            // 2. Remettre le défilement de la page
+            // 2. Restore page scrolling
             document.body.style.overflow = 'auto';
 
-            // 3. Stopper la vidéo
+            // 3. Stop the video
             modalVideo.pause();
-            modalVideo.currentTime = 0; // Remet au début
+            modalVideo.currentTime = 0; // Rewind to start
         }
 
-        // Fermer la modale avec la touche ECHAP
+        // Close modal with ESC key
         document.addEventListener('keydown', function(event) {
             if (event.key === "Escape" && modal.classList.contains('modal-visible')) {
                 closeModal();
