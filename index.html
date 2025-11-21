@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YihitoDev - Portfolio Roblox</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* --- CONFIGURATION GLOBALE --- */
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* --- GIF EN ARRIÈRE-PLAN DE LA SECTION HOME (MODIFIÉ) --- */
+        #home {
+            position: relative;
+            overflow: hidden;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* NOUVELLE URL DU GIF */
+            background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXhpZTJwb2V5dGFiN2VudDBsODV4aTl6bHlibHJxbmc3Mmt6bTFzYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/chkuZlgkjJtlP10ar5/giphy.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.15; /* Réduit l'opacité pour que le texte reste lisible */
+            z-index: -1; /* Place le GIF derrière le contenu de la section home */
+            animation: backgroundFadeIn 2s ease-out forwards;
+        }
+        
+        @keyframes backgroundFadeIn {
+            from { opacity: 0; }
+            to { opacity: 0.15; }
+        }
+
+        /* --- GLASSMORPHISM & EFFET HOVER LIFT --- */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 1; 
+            cursor: pointer;
+        }
+        .glass-card:hover {
+            z-index: 50; 
+            transform: scale(1.05) translateY(-5px);
+            border-color: #3b82f6;
+            background: rgba(30, 41, 59, 0.8);
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3);
+        }
+
+        /* --- MODAL (FENÊTRE POP-UP) --- */
+        .modal-hidden {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0s 0.3s;
+        }
+        .modal-visible {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+
+        /* --- CURSEUR CLIGNOTANT --- */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-start infinite;
+            color: #3b82f6;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* --- FLÈCHE --- */
+        .bounce { animation: bounce 2s infinite; }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-white tracking-tighter">
+                Yihito<span class="text-blue-500">Dev</span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#home" class="hover:text-blue-400 transition">ACCUEIL</a>
+                <a href="#skills" class="hover:text-blue-400 transition">COMPÉTENCES</a>
+                <a href="#projects" class="hover:text-blue-400 transition">PROJETS</a>
+                <a href="#contact" class="text-blue-400 border border-blue-400 px-4 py-1 rounded hover:bg-blue-400 hover:text-white transition">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="h-screen flex flex-col items-center justify-center text-center px-4 relative">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] -z-10"></div>
+
+        <div data-aos="zoom-in" data-aos-duration="1000" class="z-10">
+            <h1 class="text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight">
+                Yihito<span class="text-blue-600">Dev</span>
+            </h1>
+
+            <div class="text-2xl md:text-4xl font-mono text-slate-300 mb-8 h-10">
+                Je suis spécialisé en <span id="typing-text" class="text-blue-400 font-bold typing-cursor"></span>
+            </div>
+
+            <p class="text-slate-400 max-w-xl mx-auto text-lg mb-10">
+                Créateur d'expériences sur Roblox. Je transforme vos idées en jeux complets et optimisés.
+            </p>
+            
+            <div class="flex gap-4 justify-center">
+                <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition shadow-lg shadow-blue-600/40">
+                    Mes Créations
+                </a>
+                <a href="#contact" class="glass-card text-white font-bold py-3 px-8 rounded-lg hover:bg-slate-700 transition">
+                    Contact
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-500 text-center bounce z-10">
+            <i class="fas fa-chevron-down text-2xl text-blue-500"></i>
+        </div>
+    </section>
+
+    <section id="skills" class="py-24 bg-slate-900">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Mes Expertises</h2>
+                <div class="h-1 w-20 bg-blue-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-4 right-4 px-3 py-1 bg-blue-500/20 border border-blue-500/40 rounded-full text-xs text-blue-300 font-bold">2 ANS D'XP</div>
+                    <i class="fas fa-code text-4xl text-blue-500 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-2">Scripting Luau</h3>
+                    <p class="text-white font-semibold mb-3 text-sm">FrontEnd & BackEnd</p>
+                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4">
+                        <li>Systèmes complets (Data, Shops, Gamepass, UI, Combat)</li>
+                        <li>Programmation avancée</li>
+                        <li>Client-Server Communication</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-magic text-4xl text-pink-500 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-2">UI Design & VFX</h3>
+                    <p class="text-white font-semibold mb-3 text-sm">Visuel & Interactions</p>
+                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4">
+                        <li>Interfaces modernes (Tweening)</li>
+                        <li>Particules & Effets visuels</li>
+                        <li>Expérience utilisateur fluide</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-4 right-4 px-3 py-1 bg-green-500/20 border border-green-500/40 rounded-full text-xs text-green-300 font-bold">1 AN D'XP</div>
+                    <i class="fas fa-cubes text-4xl text-green-500 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-2">Build & Env.</h3>
+                    <p class="text-white font-semibold mb-3 text-sm">Level Design</p>
+                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4">
+                        <li>Création de Maps détaillées</li>
+                        <li>Lighting & Atmosphère</li>
+                        <li>Optimisation des parts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Projets Récents</h2>
+                <p class="text-slate-400">Cliquez sur une carte pour voir la démonstration en grand format.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="50"
+                     data-video="menurework.mp4"
+                     data-title="Main Menu & Loading Screen | Type Soul Rework"
+                     data-description="Menu et loading screen de Type Soul entièrement reworkés et optimisés. Inclut une nouvelle cutscene d'introduction inachevée et un système de progression de chargement asynchrone pour garantir une expérience utilisateur premium et sans lag dès le lancement."
+                     onclick="openModal(this)">
+                    <div class="h-40 bg-black relative">
+                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                            <source src="menurework.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-white mb-2">Menu & Loading | Type Soul Rework</h3>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Rework complet et optimisation du Menu/Loading Screen de Type Soul...</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="100"
+                     data-video="UiSoul.mp4"
+                     data-title="UI System | Type Soul Rework"
+                     data-description="Système d'interface utilisateur complet pour le combat et les données. Comprend un Skill Tree dynamique, une Barre de Santé/Mana personnalisée, une Hotbar et des Boutons Settings (Tween). Intègre des notifications sonores et un changement d'ambiance lumineuse pour signaler l'entrée et la sortie du mode In Combat, avec une musique de fond dynamique."
+                     onclick="openModal(this)">
+                    <div class="h-40 bg-black relative">
+                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                            <source src="UiSoul.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-white mb-2">UI System | Type Soul Rework</h3>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Système d'interface utilisateur complet (Skill Tree, Health Bar, In Combat FX)...</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="150"
+                     data-video="Staff.mp4"
+                     data-title="Combat System | Demon Staff"
+                     data-description="Système de combat magique basé sur le Démon Staff. Gestion des Hitboxes optimisée (Client-Side) et réplication des VFX/AOE (Server-Side). Mécaniques avancées: Guard Break, Coups Critiques et combos aériens."
+                     onclick="openModal(this)">
+                    <div class="h-40 bg-black relative">
+                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                            <source src="Staff.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-white mb-2">Combat System | Demon Staff</h3>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Système de combat magique avancé...</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="200"
+                     data-video="Gravity.mp4"
+                     data-title="Magic System | Gravity"
+                     data-description="Système de contrôle de la gravité (AOE). Hitboxes synchronisées côté client et effets de lévitation appliqués côté serveur pour une performance optimale."
+                     onclick="openModal(this)">
+                    <div class="h-40 bg-black relative">
+                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                            <source src="Gravity.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-white mb-2">Magic System | Gravity</h3>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Système de contrôle de la gravité (AOE)...</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="250"
+                     data-video="combat.mp4"
+                     data-title="Combat System | Fist"
+                     data-description="Système de combat au corps-à-corps (Fist Style). Gestion des Hitboxes optimisée (Client-Side) avec réplication fluide des VFX (Server-Side). Intègre des mécaniques avancées comme le Air Grab et les coups critiques."
+                     onclick="openModal(this)">
+                    <div class="h-40 bg-black relative">
+                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                            <source src="combat.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-white mb-2">Combat System | Fist</h3>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Système de combat au corps-à-corps...</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="300"
+                     data-video="Rapier.mp4"
+                     data-title="Combat System | Rapier"
+                     data-description="Système d'escrime rapide et précis (Rapier Style). Hitboxes fines et réactives, idéales pour les duels. Animation fluide, attaques de dash, et systèmes de parade basés sur l'expertise."
+                     onclick="openModal(this)">
+                    <div class="h-40 bg-black relative">
+                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                            <source src="Rapier.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-white mb-2">Combat System | Rapier</h3>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Système d'escrime rapide et précis...</p>
+                    </div>
+                </div>
+                
+                <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="350"
+                     data-video="Fire.mp4"
+                     data-title="Magic System | Fire Nova"
+                     data-description="Démonstration d'une cinématique d'introduction (Cutscene) précédant une puissante attaque de zone (Nova). Mise en scène visuelle et gestion des timings."
+                     onclick="openModal(this)">
+                    <div class="h-40 bg-black relative">
+                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                            <source src="Fire.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-white mb-2">Magic System | Fire Nova</h3>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Démonstration d'une cinématique d'introduction...</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="400"
+                     data-video="FireAura.mp4"
+                     data-title="Magic System | Fire Aura"
+                     data-description="Aura de protection dynamique qui brûle les joueurs s'approchant trop près. Utilisation de Region3 ou de collisions légères pour la détection et des dégâts gérés côté serveur."
+                     onclick="openModal(this)">
+                    <div class="h-40 bg-black relative">
+                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                            <source src="FireAura.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-white mb-2">Magic System | Fire Aura</h3>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Aura de protection dynamique qui brûle...</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="450"
+                     data-video="Demon.mp4"
+                     data-title="Magic System | Demon Aura"
+                     data-description="Aura démoniaque qui supprime la lumière ambiante autour du joueur (localement pour les autres). Crée une zone de peur et d'obscurité pour les ennemis qui s'en approchent."
+                     onclick="openModal(this)">
+                    <div class="h-40 bg-black relative">
+                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                            <source src="Demon.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-white mb-2">Magic System | Demon Aura</h3>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Aura démoniaque qui supprime la lumière...</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="500"
+                     data-video="Menu.mp4"
+                     data-title="Loading Screen & Main Menu"
+                     data-description="Implémentation complète d'un écran de chargement animé et d'un menu principal intégrant les options de jeu (boutons fonctionnels, tween fluide, gestion des états)."
+                     onclick="openModal(this)">
+                    <div class="h-40 bg-black relative">
+                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                            <source src="Menu.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-white mb-2">Loading Screen & Main Menu</h3>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Implémentation complète d'un écran de chargement...</p>
+                    </div>
+                </div>
+                
+                <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="550"
+                     data-video="Guild.mp4"
+                     data-title="Data | Team Guild System"
+                     data-description="UI client optimisée et tweenée. Déclenchement via un ClickDetector sur PNJ, vérification du rang/association, puis lancement d'une cutscene interactive d'acceptation de guilde."
+                     onclick="openModal(this)">
+                    <div class="h-40 bg-black relative">
+                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                            <source src="Guild.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-white mb-2">Data | Team Guild System</h3>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">UI client optimisée et tweenée...</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="600"
+                     data-video="Environment.mp4"
+                     data-title="Build | Beach Plage"
+                     data-description="Scène de plage détaillée. VFX animés sur la mer et le ciel (mouvements d'oiseaux, vagues dynamiques), démontrant la gestion de l'Atmosphère et du Lighting pour un rendu réaliste."
+                     onclick="openModal(this)">
+                    <div class="h-40 bg-black relative">
+                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                            <source src="Environment.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-white mb-2">Build | Beach Plage</h3>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Scène de plage détaillée. VFX animés...</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="650"
+                     data-video="Donjon.mp4"
+                     data-title="Build | Hell's Donjon"
+                     data-description="Design de niveau (Level Design) d'un donjon infernal. Utilisation de l'environnement pour créer l'ambiance et masquer des créatures étranges."
+                     onclick="openModal(this)">
+                    <div class="h-40 bg-black relative">
+                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                            <source src="Donjon.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-white mb-2">Build | Hell's Donjon</h3>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Design de niveau (Level Design) d'un donjon...</p>
+                    </div>
+                </div>
+
+                 <div class="glass-card rounded-xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="700"
+                     data-video="Donjon2.mp4"
+                     data-title="Build | Donjon (Part.2)"
+                     data-description="Suite du Donjon. Effet de chaleur et texture de lave qui infligent des brûlures/dégâts si le joueur n'est pas protégé. Démonstration de l'interactivité entre le Build et les scripts."
+                     onclick="openModal(this)">
+                    <div class="h-40 bg-black relative">
+                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                            <source src="Donjon2.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-white mb-2">Build | Donjon (Part.2)</h3>
+                        <p class="text-slate-400 mb-4 text-xs leading-snug">Suite du Donjon. Effet de chaleur et texture de lave...</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-slate-900">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6" data-aos="zoom-in">Me Contacter</h2>
+            <p class="text-slate-400 mb-10">N'hésite pas à me contacter pour discuter de ton projet.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-xl hover:bg-[#5865F2] transition flex items-center justify-center gap-4 group cursor-pointer">
+                    <i class="fab fa-discord text-3xl group-hover:text-white text-[#5865F2] transition"></i>
+                    <div class="text-left">
+                        <p class="text-xs text-slate-400 group-hover:text-slate-200">Discord</p>
+                        <p class="font-bold text-lg text-white">@yihito_samaa</p>
+                    </div>
+                </div>
+                <a href="mailto:yihitosama@gmail.com" class="glass-card p-6 rounded-xl hover:bg-slate-700 transition flex items-center justify-center gap-4 group">
+                    <i class="fas fa-envelope text-3xl text-slate-300 group-hover:text-white transition"></i>
+                    <div class="text-left">
+                        <p class="text-xs text-slate-400">Email</p>
+                        <p class="font-bold text-lg text-white">yihitosama@gmail.com</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center text-slate-600 border-t border-slate-800 bg-slate-950 text-sm">
+        <p>&copy; 2025 YihitoDev. All rights reserved.</p>
+    </footer>
+
+    <div id="project-modal" class="modal-hidden fixed inset-0 z-[100] flex items-center justify-center p-4" onclick="closeModal()">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+
+        <div class="glass-card w-full max-w-4xl p-6 rounded-xl z-10 relative" onclick="event.stopPropagation()">
+            
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-2xl text-slate-400 hover:text-white transition">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="aspect-video bg-black rounded-lg overflow-hidden">
+                    <video id="modal-video" class="w-full h-full object-cover" controls autoplay loop muted playsinline></video>
+                </div>
+
+                <div class="text-left flex flex-col justify-center">
+                    <h3 id="modal-title" class="text-3xl font-bold text-blue-400 mb-3"></h3>
+                    <p id="modal-description" class="text-slate-300 text-lg"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        
+        // SCRIPT TYPING EFFECT
+        const texts = ["Script Luau", "UI Design", "Build", "VFX", "Environnement"];
+        let count = 0;
+        let index = 0;
+        let currentText = "";
+        let letter = "";
+        (function type() {
+            if (count === texts.length) { count = 0; }
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+            document.getElementById("typing-text").textContent = letter;
+            if (letter.length === currentText.length) {
+                setTimeout(() => { count++; index = 0; }, 2000);
+            }
+            let speed = 100; 
+            if(letter.length === currentText.length) speed = 2000; 
+            setTimeout(type, speed);
+        })();
+
+        // SCRIPT MODAL
+        const modal = document.getElementById('project-modal');
+        const modalVideo = document.getElementById('modal-video');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDescription = document.getElementById('modal-description');
+
+        /**
+         * Ouvre la modale et injecte le contenu de la carte cliquée.
+         * @param {HTMLElement} element - La carte de projet cliquée.
+         */
+        function openModal(element) {
+            const videoSrc = element.getAttribute('data-video');
+            const title = element.getAttribute('data-title');
+            const description = element.getAttribute('data-description');
+            
+            // 1. Injecter le contenu
+            modalVideo.src = videoSrc;
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            
+            // 2. Afficher la modale
+            modal.classList.remove('modal-hidden');
+            modal.classList.add('modal-visible');
+
+            // 3. Empêcher le défilement de la page derrière la modale
+            document.body.style.overflow = 'hidden';
+
+            // Assurer que la vidéo est lancée
+            modalVideo.play();
+        }
+
+        /**
+         * Ferme la modale et nettoie.
+         */
+        function closeModal() {
+            // 1. Cacher la modale
+            modal.classList.remove('modal-visible');
+            modal.classList.add('modal-hidden');
+
+            // 2. Remettre le défilement de la page
+            document.body.style.overflow = 'auto';
+
+            // 3. Stopper la vidéo
+            modalVideo.pause();
+            modalVideo.currentTime = 0; // Remet au début
+        }
+
+        // Fermer la modale avec la touche ECHAP
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" && modal.classList.contains('modal-visible')) {
+                closeModal();
+            }
+        });
+
+    </script>
+</body>
+</html>
